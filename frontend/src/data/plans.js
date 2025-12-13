@@ -1,0 +1,40 @@
+// data/plans.js
+export const plans = [
+  {
+    name: "Ascend Plan",
+    tagline: "Start strong. Grow steadily.",
+    returnRate: "2.8%",
+    profit: "Every Hour",
+    capitalBack: true,
+    repeat: "15 Times",
+    range: "$5,000 – $25,000",
+  },
+  {
+    name: "Velocity Plan",
+    tagline: "Accelerate your capital growth.",
+    returnRate: "3.8%",
+    profit: "Lifetime",
+    capitalBack: false,
+    repeat: "22 Times",
+    range: "$25,000 – $50,000",
+    featured: true,
+  },
+  {
+    name: "Prestige Plan",
+    tagline: "Invest smart. Earn with class.",
+    returnRate: "5%",
+    profit: "Every Day",
+    capitalBack: true,
+    repeat: "30 Times",
+    range: "$50,000 – $200,000",
+  },
+  {
+    name: "Sovereign Plan",
+    tagline: "Command your wealth with confidence.",
+    returnRate: "7%",
+    profit: "Lifetime",
+    capitalBack: false,
+    repeat: "45 Times",
+    range: "$200,000 – $1,000,000",
+  },
+];
