@@ -17,6 +17,8 @@ import adminTransactionRoutes from "./routes/adminTransactionRoutes.js";
 import adminUserRoutes from "./routes/admin/adminUserRoutes.js";
 import investmentAdminRoutes from "./routes/admin/investmentAdminRoutes.js";
 import adminDashboardRoutes from "./routes/adminDashboardRoutes.js";
+import userDashboardRoute from "./routes/userDashboardRoute.js";
+
 // import "./cron/cronjob.js";
 
 dotenv.config();
@@ -50,6 +52,7 @@ app.use("/api/admin/transactions", adminTransactionRoutes);
 app.use("/api/admin", adminUserRoutes);
 app.use("/api/admin", investmentAdminRoutes);
 app.use("/admin", adminDashboardRoutes);
+app.use("/api/user", userDashboardRoute);
 
 app.listen(port, () => {
   console.log("server connected");

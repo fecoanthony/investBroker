@@ -10,7 +10,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import AboutUs from "./pages/AboutUs";
 import Contact from "./pages/Contact";
-import Dashboard from "./pages/Dashboard";
+// import Dashboard from "./pages/Dashboard";
 import BlogDetail from "./pages/BlogDetail";
 
 import AdminLayout from "./admin/layout/AdminLayout";
@@ -23,6 +23,7 @@ import AdminInvestmentsPage from "./admin/investments/AdminInvestmentsPage";
 import ProtectedRoute from "./routes/ProtectedRoute";
 import { useUserStore } from "./stores/useUserStore";
 import { allPosts } from "./components/BlogSection";
+import UserDashboard from "./pages/user/dashboard/UserDashboard";
 
 const App = () => {
   const { user, getCurrentUser, checkingAuth } = useUserStore();
@@ -59,7 +60,7 @@ const App = () => {
           path="/user-dashboard"
           element={
             <ProtectedRoute>
-              <Dashboard />
+              <UserDashboard />
             </ProtectedRoute>
           }
         />
