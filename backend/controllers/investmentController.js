@@ -5,6 +5,7 @@ import Wallet from "../models/Wallet.js";
 import Transaction from "../models/Transaction.js";
 import Plan from "../models/Plan.js";
 import { processReferralOnInvestment } from "../services/referralService.js";
+import { lockPlanIfNeeded } from "./adminPlanController.js";
 
 /**
  * createInvestment - user endpoint
@@ -44,11 +45,14 @@ export const createInvestment = async (req, res) => {
         [
           {
             userId,
-            type: "withdraw",
+            type: "adjustment",
             amountCents: -amountCents,
             currency: "USD",
             status: "completed",
-            meta: { planId },
+            meta: {
+              reason: "investment_funding",
+              planId,
+            },
           },
         ],
         { session }
@@ -76,6 +80,8 @@ export const createInvestment = async (req, res) => {
         ],
         { session }
       );
+
+      await lockPlanIfNeeded(planId, session);
 
       // Process referral payout (idempotent) inside the same session
       await processReferralOnInvestment(userId, newInv._id, amountCents, {

@@ -238,12 +238,12 @@ export default function footer() {
                 <motion.input
                   type="email"
                   placeholder="username@site.com"
-                  className="input input-bordered join-item w-full"
+                  className="input input-bordered join-item w-full bg-gray-300 p-3 text-gray-600"
                   whileFocus={{ scale: 1.01 }}
                   aria-label="Email address"
                 />
                 <motion.button
-                  className="btn bg-blue-700 hover:bg-blue-400 text-whiteHow do you handle medication administration join-item"
+                  className="btn bg-blue-700 p-3 hover:bg-blue-400 text-whiteHow do you handle medication administration join-item"
                   whileHover={{ y: -3, scale: 1.02 }}
                   aria-label="Subscribe to newsletter"
                 >

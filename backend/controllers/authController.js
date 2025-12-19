@@ -163,7 +163,7 @@ export const login = async (req, res, next) => {
     // If your frontend is on different domain and you need cross-site cookies, use sameSite: 'none' and secure: true
     res.cookie("accessToken", accessToken, {
       httpOnly: true,
-      secure: secureFlag, // ensure this is defined earlier
+      // secure: secureFlag, // ensure this is defined earlier
       sameSite: "lax", // or "none" for cross-site use
       maxAge: sevenDays, // 7 days
     });

@@ -12,6 +12,7 @@ const PlanSchema = new mongoose.Schema(
       default: "day",
     },
     periodCount: { type: Number, default: 1 }, // how many payouts (e.g., 72 for hourly 72 hours)
+    locked: { type: Boolean, default: false }, // auto-locked after first investment
     payoutFrequencySeconds: { type: Number, required: true }, // seconds between payouts
     minAmountCents: { type: Number, required: true },
     maxAmountCents: { type: Number, default: Number.MAX_SAFE_INTEGER },

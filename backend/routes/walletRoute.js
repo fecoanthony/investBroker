@@ -10,6 +10,10 @@ const router = express.Router();
 router.use(protectroute);
 
 router.get("/get-wallet", getWallet);
-router.post("/admin/credit-wallet", isAdmin("admin"), adminCreditWallet);
+router.post(
+  "/admin/credit-wallet",
+  isAdmin("admin", "super_admin"),
+  adminCreditWallet
+);
 
 export default router;

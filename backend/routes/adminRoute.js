@@ -10,14 +10,14 @@ const router = express.Router();
 router.get(
   "/admin/crypto/pending",
   protectroute,
-  isAdmin("admin"),
+  isAdmin("admin", "super_admin"),
   getPendingCryptoDeposits
 );
 
 router.patch(
   "/admin/crypto/approve/:txId",
   protectroute,
-  isAdmin("admin"),
+  isAdmin("admin", "super_admin"),
   approveCryptoDeposit
 );
 

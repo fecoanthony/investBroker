@@ -12,7 +12,12 @@ const UserSchema = new mongoose.Schema(
       trim: true,
     },
     passwordHash: { type: String, required: true },
-    role: { type: String, enum: ["user", "admin", "support"], default: "user" },
+    role: {
+      type: String,
+      enum: ["user", "admin", "super_admin"],
+      default: "user",
+    },
+    isSuspended: { type: Boolean, default: false },
     isEmailVerified: { type: Boolean, default: false },
     kycStatus: {
       type: String,

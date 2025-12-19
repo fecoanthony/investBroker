@@ -22,6 +22,7 @@ const TransactionSchema = new mongoose.Schema(
       type: String,
       enum: ["pending", "completed", "failed", "rejected"],
       default: "pending",
+      index: true,
     },
     relatedObject: {
       // generic reference (investment, withdrawal request etc)

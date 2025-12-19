@@ -23,9 +23,17 @@ router.get("/me", listUserTransactions);
 router.post("/create-crypto-deposit", createCryptoDeposit);
 
 // Admin routes (specific) - must come before the param route
-router.post("/deposit", isAdmin("admin"), createDeposit);
-router.post("/withdraw/process", isAdmin("admin"), processWithdrawal);
-router.get("/list-transactions", isAdmin("admin"), adminListTransactions);
+router.post("/deposit", isAdmin("admin", "super_admin"), createDeposit);
+router.post(
+  "/withdraw/process",
+  isAdmin("admin", "super_admin"),
+  processWithdrawal
+);
+router.get(
+  "/list-transactions",
+  isAdmin("admin", "super_admin"),
+  adminListTransactions
+);
 
 // Finally: param route for a single transaction (most generic)
 router.get("/:id", getTransactionById);

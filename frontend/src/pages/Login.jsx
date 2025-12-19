@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { Link } from "react-router-dom";
+import { Link, Navigate, useLocation } from "react-router-dom";
 import { LogIn, Mail, Lock, ArrowRight, Loader } from "lucide-react";
 import { useUserStore } from "../stores/useUserStore";
 
@@ -10,6 +10,10 @@ const LoginPage = () => {
 
   const { login, loading } = useUserStore();
 
+  const location = useLocation();
+  const redirectTo = location.state?.redirectTo || "/";
+
+  Navigate(redirectTo);
   const handleSubmit = (e) => {
     e.preventDefault();
     console.log(email, password);

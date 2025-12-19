@@ -31,6 +31,10 @@ export const protectroute = async (req, res, next) => {
       });
     }
 
+    if (user.isSuspended) {
+      return res.status(403).json({ message: "Account suspended" });
+    }
+
     req.user = user; // ✅ Full user object
     next();
   } catch (error) {
