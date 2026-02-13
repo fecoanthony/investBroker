@@ -1,7 +1,7 @@
 // import ReferralCard from "./components/ReferralCard";
 import { useEffect } from "react";
-import { useUserDashboardStore } from "../stores/useUserDashboardStore";
-import LoadingSpinner from "../components/LoadingSpinner";
+import { useUserDashboardStore } from "../../../stores/useUserDashboardStore";
+import LoadingSpinner from "../../../components/LoadingSpinner";
 import { Link } from "react-router-dom";
 
 const StatCard = ({ title, value }) => (

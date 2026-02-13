@@ -3,11 +3,21 @@ import {
   getAllTransactions,
   approveWithdrawal,
 } from "../controllers/adminTransactionController.js";
-import { protect, adminOnly } from "../middleware/authMiddleware.js";
+import { protectroute, isAdmin } from "../middlewares/protectRoute.js";
 
 const router = express.Router();
 
-router.get("/", protect, adminOnly, getAllTransactions);
-router.post("/approve-withdrawal/:id", protect, adminOnly, approveWithdrawal);
+router.get(
+  "/",
+  protectroute,
+  isAdmin("admin", "super_admin"),
+  getAllTransactions
+);
+router.post(
+  "/approve-withdrawal/:id",
+  protectroute,
+  isAdmin,
+  approveWithdrawal
+);
 
 export default router;

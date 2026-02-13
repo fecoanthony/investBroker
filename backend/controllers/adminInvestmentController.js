@@ -63,7 +63,7 @@
 //   } catch (err) {
 //     return res.status(500).json({ message: err.message });
 //   }
-// };
+};
 
 // /**
 //  * SUPER ADMIN: Force cancel investment

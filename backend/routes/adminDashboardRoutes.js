@@ -1,6 +1,6 @@
 import express from "express";
 import { getAdminDashboardSummary } from "../controllers/adminDashboardController.js";
-import { protectroute, isAdmin } from "../middleware/protectRoute.js";
+import { protectroute, isAdmin } from "../middlewares/protectRoute.js";
 
 const router = express.Router();
 

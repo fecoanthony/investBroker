@@ -271,9 +271,12 @@ export const getTransactionById = async (req, res) => {
         .json({ success: false, message: "Transaction not found" });
 
     // if user, verify ownership
-    if (!req.user.role || req.user.role !== "admin") {
-      if (String(tx.userId) !== String(req.user._id))
+    const isAdmin = req.user.role === "admin" || req.user.role === "superadmin";
+
+    if (!isAdmin) {
+      if (String(tx.userId) !== String(req.user._id)) {
         return res.status(403).json({ message: "Forbidden" });
+      }
     }
 
     return res.json({ success: true, data: tx });
